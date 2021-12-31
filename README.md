@@ -37,10 +37,15 @@ Run `nvim` in the terminal.
 nvim
 ```
 
-### configuration
+### Configuration
 
 Run the following command to install plugins:
 
 ```
 :PackerSync
 ```
+
+## Thanks
+
+Inspiration and some code are from
+[Christian Chiarulli](https://github.com/ChristianChiarulli).
