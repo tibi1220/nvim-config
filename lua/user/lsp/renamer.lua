@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-vim.api.nvim_set_keymap(
+vim.api.nvim_set_keymap( --
   "i",
   "<F2>",
   '<cmd>lua require("renamer").rename()<cr>',

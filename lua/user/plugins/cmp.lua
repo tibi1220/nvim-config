@@ -42,8 +42,6 @@ local kind_icons = {
   TypeParameter = "",
 }
 
-vim.g.completeopt='menuone, noinsert, select'
-
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -63,14 +61,14 @@ cmp.setup {
     },
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm { select = true },
+    ["<CR>"] = cmp.mapping.confirm { select = false },
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
+      if cmp.visible() then
+        cmp.select_next_item()
       elseif luasnip.expandable() then
         luasnip.expand()
-      elseif cmp.visible() then
-        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
       elseif check_backspace() then
         fallback()
       else
@@ -81,10 +79,10 @@ cmp.setup {
       "s",
     }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      elseif cmp.visible() then
+      if cmp.visible() then
         cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
@@ -107,13 +105,6 @@ cmp.setup {
         buffer = "[Buffer]",
         path = "[Path]",
         emoji = "[Emoji]",
-
-        -- nvim_lsp = "",
-        -- nvim_lua = "",
-        -- luasnip = "",
-        -- buffer = "",
-        -- path = "",
-        -- emoji = "",
       })[entry.source.name]
       return vim_item
     end,

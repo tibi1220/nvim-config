@@ -41,7 +41,7 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- Utils
-  use "nvim-lua/plenary.nvim"                   -- Lua prewritten functions 
+  use "nvim-lua/plenary.nvim"                   -- Lua prewritten functions
   use "lewis6991/impatient.nvim"                -- Faster init.lua loadtimes
   use "antoinemadec/FixCursorHold.nvim"         -- Fix Cursorhold performance
   use "kevinhwang91/nvim-bqf"                   -- Quickfix menu fix
@@ -49,11 +49,11 @@ return packer.startup(function(use)
 
   -- General plugins
   use "wbthomason/packer.nvim"                  -- Packer plugin manager
-  
+
   use "kyazdani42/nvim-tree.lua"                -- Nerdtree in lua
   use "akinsho/bufferline.nvim"                 -- Use multiple tabs
   use "nvim-lualine/lualine.nvim"               -- Airline like
-  
+
   use "moll/vim-bbye"                           -- Delete buffer without exiting vim
   use "Shatur/neovim-session-manager"           -- Save vim sessions
   use "tversteeg/registers.nvim"                -- Access registers
@@ -116,6 +116,7 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"                 -- Fuzzy finder
+  use "nvim-telescope/telescope-media-files.nvim"
   use "tom-anders/telescope-vim-bookmarks.nvim"       -- Bookmarks
   use "nvim-telescope/telescope-media-files.nvim"     -- Telescope media viewer
   use "ahmedkhalf/project.nvim"                       -- Project manager for telescope integration

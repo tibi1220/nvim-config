@@ -3,35 +3,45 @@ if not status_ok then
   return
 end
 
+-- gitsigns.setup {
+--   signs = {
+--     add          = {hl = 'diffAdded', text = '┃'},
+--     change       = {hl = 'diffRemoved', text = '┃'},
+--     delete       = {hl = 'diffRemoved', text = '_'},
+--     topdelete    = {hl = 'diffRemoved', text = '‾'},
+--     changedelete = {hl = 'diffRemoved', text = '~'},
+--   },
+-- }
+
 gitsigns.setup {
   signs = {
     add = {
       hl = "GitSignsAdd",
-      text = "▎",
+      text = "+", -- ▎
       numhl = "GitSignsAddNr",
       linehl = "GitSignsAddLn",
     },
     change = {
       hl = "GitSignsChange",
-      text = "▎",
+      text = "~", -- ▎
       numhl = "GitSignsChangeNr",
       linehl = "GitSignsChangeLn",
     },
     delete = {
       hl = "GitSignsDelete",
-      text = "契",
+      text = "_", -- 契
       numhl = "GitSignsDeleteNr",
       linehl = "GitSignsDeleteLn",
     },
     topdelete = {
       hl = "GitSignsDelete",
-      text = "契",
+      text = "‾", -- 契
       numhl = "GitSignsDeleteNr",
       linehl = "GitSignsDeleteLn",
     },
     changedelete = {
       hl = "GitSignsChange",
-      text = "▎",
+      text = "~", -- ▎
       numhl = "GitSignsChangeNr",
       linehl = "GitSignsChangeLn",
     },

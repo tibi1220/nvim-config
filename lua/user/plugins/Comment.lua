@@ -15,7 +15,7 @@ Comment.setup {
   mapping = {
     basic = true,
     extra = true,
-    extended = true
+    extended = true,
   },
 
   pre_hook = function(ctx)
@@ -34,3 +34,4 @@ Comment.setup {
     }
   end,
 }
+

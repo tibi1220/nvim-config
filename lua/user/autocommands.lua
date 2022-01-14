@@ -6,3 +6,4 @@ vim.cmd [[
 ]]
 
 vim.notify "Formatting on Save is enabled by default! Type <CMD>ToggleAutoFormat to disable"
+

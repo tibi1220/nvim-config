@@ -1,6 +1,6 @@
 local status_ok, nvim_treesitter = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
-	return
+  return
 end
 
 nvim_treesitter.setup {
@@ -15,7 +15,7 @@ nvim_treesitter.setup {
   autopairs = {
     enable = true,
   },
-  indent = { enable = true, },
+  indent = { enable = true },
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
@@ -38,3 +38,4 @@ nvim_treesitter.setup {
     enable = true,
   },
 }
+

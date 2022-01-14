@@ -6,10 +6,10 @@ end
 local cfg = {
   bind = true, -- This is mandatory, otherwise border config won't get registered.
   handler_opts = {
-    border = "rounded"
+    border = "rounded",
   },
   max_width = 80,
-  max_height = 100;
+  max_height = 100,
 }
 
 -- recommanded:
