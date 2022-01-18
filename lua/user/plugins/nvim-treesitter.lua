@@ -9,11 +9,12 @@ nvim_treesitter.setup {
   ignore_install = { "" }, -- List of parsers to ignore installing
   highlight = {
     enable = true, -- false will disable the whole extension
-    disable = { "" }, -- list of language that will be disabled
+    disable = { "tex", "latex" }, -- list of language that will be disabled
     additional_vim_regex_highlighting = true,
   },
   autopairs = {
     enable = true,
+    disable = { "tex", "latex" }, -- list of language that will be disabled
   },
   indent = { enable = true },
   context_commentstring = {
@@ -38,4 +39,3 @@ nvim_treesitter.setup {
     enable = true,
   },
 }
-

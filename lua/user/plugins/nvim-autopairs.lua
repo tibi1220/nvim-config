@@ -8,7 +8,7 @@ local Rule = require "nvim-autopairs.rule"
 local cond = require "nvim-autopairs.conds"
 
 npairs.setup {
-  -- disable_filetype = { "TelescopePrompt", "tex" },
+  disable_filetype = { "TelescopePrompt", "tex", "latex" },
   check_ts = true,
   ts_config = {
     lua = { "string", "source" },
@@ -49,4 +49,3 @@ if not cmp_status_ok then
   return
 end
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
-
