@@ -22,6 +22,7 @@ end
 
 function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, "t", "<ESC>", [[<C-\><C-n>]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], opts)
 end
 
 vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
