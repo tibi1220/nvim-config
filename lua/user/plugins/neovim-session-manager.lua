@@ -8,9 +8,9 @@ session_manager.setup {
   autosave_last_session = true,
 }
 
-local tele_status_ok, telescope = pcall(require, "telescope")
-if not tele_status_ok then
-  return
-end
-
-telescope.load_extension "sessions"
+-- local tele_status_ok, telescope = pcall(require, "telescope")
+-- if not tele_status_ok then
+--   return
+-- end
+--
+-- telescope.load_extension "sessions"

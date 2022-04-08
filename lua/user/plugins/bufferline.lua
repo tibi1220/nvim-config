@@ -12,9 +12,9 @@ bufferline.setup {
     right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
     left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
     middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
-    max_name_length = 30,
+    max_name_length = 25,
     max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
-    tab_size = 30,
+    tab_size = 25,
     diagnostics = "nvim_lsp",
     offsets = { { filetype = "NvimTree", text = "File Explorer" } },
     show_buffer_icons = true, -- disable filetype icons for buffers

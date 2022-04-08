@@ -82,6 +82,7 @@ return packer.startup(function(use)
   -- Colorschemes
   use "lunarvim/darkplus.nvim" -- VS Code like theme
   use "morhetz/gruvbox" -- Gruvbox
+  -- use "rafamadriz/gruvbox"
 
   -- LSP
   use "neovim/nvim-lspconfig" -- Enable Language Server Protocol
@@ -116,7 +117,6 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim" -- Fuzzy finder
-  use "nvim-telescope/telescope-media-files.nvim"
   use "tom-anders/telescope-vim-bookmarks.nvim" -- Bookmarks
   use "nvim-telescope/telescope-media-files.nvim" -- Telescope media viewer
   use "ahmedkhalf/project.nvim" -- Project manager for telescope integration
@@ -136,7 +136,7 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim" -- Git per line integration
-  use "f-person/git-blame.nvim" -- Git blame per line integration
+  --[[ use "f-person/git-blame.nvim" -- Git blame per line integration ]]
   use "mattn/webapi-vim" -- Web api interface
   use "sindrets/diffview.nvim"
 

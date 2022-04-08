@@ -49,7 +49,9 @@ local setup = {
     lualine_z = {},
   },
   tabline = {},
-  extensions = {},
+  extensions = {
+    "toggleterm",
+  },
 }
 
 local function ins_left(component)
