@@ -35,7 +35,8 @@ local setup = {
   sections = {
     lualine_a = { "mode" },
     lualine_b = { "branch", "diff", "diagnostics" },
-    lualine_c = { "filename" },
+    --[[ lualine_c = { "filename" }, ]]
+    lualine_c = {},
     lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_y = { "progress" },
     lualine_z = { "location" },
@@ -51,6 +52,8 @@ local setup = {
   tabline = {},
   extensions = {
     "toggleterm",
+    "nvim-tree",
+    "symbols-outline",
   },
 }
 
@@ -65,19 +68,35 @@ end
 ins_left {
   -- Lsp server name .
   function()
-    local msg = ""
+    -- local buf_ft = vim.bo.filetype
     local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
     local clients = vim.lsp.get_active_clients()
     if next(clients) == nil then
-      return msg
+      return ""
     end
+
+    local buf_client_names = {}
+
     for _, client in ipairs(clients) do
       local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
+      if
+        filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 --[[and client.name ~= "null-ls"]] --
+      then
+        table.insert(buf_client_names, client.name)
       end
     end
-    return msg
+
+    -- -- add formatter
+    -- local formatters = require "lvim.lsp.null-ls.formatters"
+    -- local supported_formatters = formatters.list_registered(buf_ft)
+    -- vim.list_extend(buf_client_names, supported_formatters)
+    --
+    -- -- add linter
+    -- local linters = require "lvim.lsp.null-ls.linters"
+    -- local supported_linters = linters.list_registered(buf_ft)
+    -- vim.list_extend(buf_client_names, supported_linters)
+
+    return table.concat(buf_client_names, ", ")
   end,
   icon = " LSP:",
 }
