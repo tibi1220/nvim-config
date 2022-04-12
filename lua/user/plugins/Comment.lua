@@ -9,7 +9,8 @@ Comment.setup {
   ignore = nil,
 
   toggler = {
-    line = "g/",
+    line = "gcc",
+    block = "gbc",
   },
 
   mapping = {
@@ -34,4 +35,3 @@ Comment.setup {
     }
   end,
 }
-
