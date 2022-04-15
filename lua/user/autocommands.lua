@@ -5,5 +5,4 @@ vim.cmd [[
   augroup end
 ]]
 
-vim.notify "Formatting on Save is enabled by default! Type <CMD>ToggleAutoFormat to disable"
-
+-- vim.notify "Formatting on Save is enabled by default! Type <CMD>ToggleAutoFormat to disable"

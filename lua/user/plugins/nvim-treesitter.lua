@@ -4,17 +4,16 @@ if not status_ok then
 end
 
 nvim_treesitter.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-  ignore_install = { "" }, -- List of parsers to ignore installing
+  ensure_installed = "all",
+  ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
   highlight = {
-    enable = true, -- false will disable the whole extension
-    disable = { "tex", "latex" }, -- list of language that will be disabled
+    enable = true,
+    disable = { "tex", "latex" },
     additional_vim_regex_highlighting = true,
   },
   autopairs = {
     enable = true,
-    disable = { "tex", "latex" }, -- list of language that will be disabled
+    disable = { "tex", "latex" },
   },
   indent = { enable = true },
   context_commentstring = {
