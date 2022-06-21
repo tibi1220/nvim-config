@@ -99,6 +99,7 @@ return packer.startup(function(use)
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   }
+  use "http://git.vhdltool.com/vhdl-tool/syntastic-vhdl-tool"
   -- TODO: configure LSP
 
   -- Cmp plugins

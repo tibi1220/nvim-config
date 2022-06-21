@@ -79,9 +79,7 @@ ins_left {
 
     for _, client in ipairs(clients) do
       local filetypes = client.config.filetypes
-      if
-        filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 --[[and client.name ~= "null-ls"]] --
-      then
+      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 and client.name ~= "null-ls" then
         table.insert(buf_client_names, client.name)
       end
     end
