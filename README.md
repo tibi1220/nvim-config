@@ -23,8 +23,6 @@ git clone https://github.com/tibi1220/nvim-config ~/.config/nvim
 
 ## File structure
 
-## Thanks
-
 ```
 ├── lua
 │   ├── config                         // Non plugin related stuff
@@ -50,6 +48,8 @@ git clone https://github.com/tibi1220/nvim-config ~/.config/nvim
 │       └── init.lua
 └── init.lua                           // Main entry point
 ```
+
+## Thanks
 
 I want to say thank you to all the plugin authors and to the entire neovim
 community. While making my config my main inspiration was:
