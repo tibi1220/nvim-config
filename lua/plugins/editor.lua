@@ -1,4 +1,5 @@
 return {
+  -- { "karb94/neoscroll.nvim", config = true },
   -----------------------------------------------------------------------------
   -- Lualine ------------------------------------------------------------------
   -----------------------------------------------------------------------------
@@ -166,6 +167,7 @@ return {
           hide_dotfiles = false,
           hide_hidden = false,
           show_hidden_count = false,
+          hide_gitignored = false,
         },
       },
       default_component_configs = {

@@ -31,8 +31,51 @@ return {
   priority = 1000,
   config = function()
     vim.cmd "colorscheme nightfox"
+    vim.cmd "hi EndOfBuffer guifg=#738091 guibg=NONE"
   end,
 }
+
+-- return {
+--   dir = "/Users/tiborsandor/Documents/Code/NVIM/reactive.nvim",
+--   config = function()
+--     require("reactive").setup {
+--       debug = true,
+--     }
+--     vim.cmd [[colorscheme reactive]]
+--   end,
+-- }
+
+-- return {
+--   dir = "/Users/tiborsandor/Documents/Code/NVIM/nightfox.nvim",
+--   config = function()
+--     vim.cmd "colorscheme nightfox"
+--   end,
+-- }
+
+-- return {
+--   {
+--     "rktjmp/lush.nvim",
+--     priority = 2000,
+--   },
+--   {
+--     dir = "/Users/tiborsandor/Documents/Code/NVIM/reactive",
+--     lazy = false,
+--     priority = 1000,
+--     setup = function()
+--       vim.cmd "colorscheme reactive"
+--     end,
+--   },
+-- }
+
+-- return {
+--   "bluz71/vim-nightfly-colors",
+--   name = "nightfly",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.cmd "colorscheme nightfly"
+--   end,
+-- }
 
 -- return {
 --   "catppuccin/nvim",

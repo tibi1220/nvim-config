@@ -1,5 +1,19 @@
 return {
   -----------------------------------------------------------------------------
+  -- nvim-colorizer -----------------------------------------------------------
+  -----------------------------------------------------------------------------
+  {
+    "norcalli/nvim-colorizer.lua",
+    opts = {
+      RGB = true, -- #RGB hex codes
+      RRGGBB = true, -- #RRGGBB hex codes
+      RRGGBBAA = true, -- #RRGGBBAA hex codes
+    },
+    config = function(_, opts)
+      require("colorizer").setup({ "*" }, opts)
+    end,
+  },
+  -----------------------------------------------------------------------------
   -- nvim-notify --------------------------------------------------------------
   -----------------------------------------------------------------------------
   {
@@ -69,11 +83,29 @@ return {
     opts = function()
       vim.opt.list = true
       vim.opt.listchars:append "eol:↴"
+      -- vim.opt.listchars:append "space:─" -- ◦ ▁ ⋅ ─
+
       return {
-        char = "▏",
+        char = "▏", -- │▏├
         filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
         show_trailing_blankline_indent = false,
         show_current_context = false,
+        -- char_highlight_list = {
+        --   "IndentBlanklineIndent1",
+        --   "IndentBlanklineIndent2",
+        --   "IndentBlanklineIndent3",
+        --   "IndentBlanklineIndent4",
+        --   "IndentBlanklineIndent5",
+        --   "IndentBlanklineIndent6",
+        -- },
+        -- char_highlight_list = {
+        --   "IndentBlanklineIndent7",
+        --   "IndentBlanklineIndent8",
+        -- },
+        -- space_char_highlight_list = {
+        --   "IndentBlanklineIndent7",
+        --   "IndentBlanklineIndent8",
+        -- },
       }
     end,
   },
@@ -84,7 +116,7 @@ return {
     "echasnovski/mini.indentscope",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-      symbol = "▏",
+      symbol = "▍", --┃▏▎▍┣╟
       options = { try_as_border = true },
     },
     init = function()
@@ -119,9 +151,9 @@ return {
       dashboard.section.header.val = vim.split(logo, "\n")
       dashboard.section.buttons.val = {
         dashboard.button("f", " " .. " Find file", "<CMD>Telescope find_files <CR>"),
-        dashboard.button("n", " " .. " New file", "<CMD>ene <BAR> startinsert <CR>"),
+        dashboard.button("e", " " .. " New file", "<CMD>ene <BAR> startinsert <CR>"),
         dashboard.button("r", " " .. " Recent files", "<CMD>Telescope oldfiles <CR>"),
-        dashboard.button("g", " " .. " Find text", "<CMD>Telescope live_grep <CR>"),
+        dashboard.button("w", " " .. " Find text", "<CMD>Telescope live_grep <CR>"),
         dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
         dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
         dashboard.button("l", "󰒲 " .. " Lazy", "<CMD>Lazy<CR>"),

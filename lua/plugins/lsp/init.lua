@@ -131,6 +131,7 @@ return {
         sources = {
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.prettier,
+          nls.builtins.formatting.autopep8,
           nls.builtins.formatting.latexindent.with { extra_args = { "-l" } },
         },
       }
@@ -154,7 +155,7 @@ return {
     opts = function()
       return {
         separator = "  ",
-        depth_limit = 0,
+        depth_limit = 3,
         -- icons = require("config.icons").kind,
       }
     end,

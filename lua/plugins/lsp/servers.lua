@@ -3,7 +3,7 @@ return {
     settings = {
       Lua = {
         diagnostics = {
-          globals = { "vim", "tex" },
+          globals = { "vim", "tex", "jit", "bit", "bit32" },
         },
         workspace = {
           library = {

@@ -1,7 +1,7 @@
 return {
-  { "numToStr/Comment.nvim", event = { "BufReadPost", "BufNewFile" }, opts = {} },
+  { "numToStr/Comment.nvim", event = { "BufReadPost", "BufNewFile" }, config = true },
   { "norcalli/nvim-colorizer.lua", event = "VeryLazy" },
-  { "nacro90/numb.nvim", event = "VeryLazy" },
+  { "nacro90/numb.nvim", event = "VeryLazy", config = true },
   -----------------------------------------------------------------------------
   -- Snippets -----------------------------------------------------------------
   -----------------------------------------------------------------------------
@@ -34,11 +34,14 @@ return {
   -- Autopairs ---------------------------------------------------------------
   -----------------------------------------------------------------------------
   {
-    "echasnovski/mini.pairs",
-    event = "InsertEnter",
-    config = function(_, opts)
-      require("mini.pairs").setup(opts)
-    end,
+    -- "echasnovski/mini.pairs",
+    -- "windwp/nvim-autopairs",
+    "jiangmiao/auto-pairs",
+    -- event = "InsertEnter",
+    -- config = true,
+    -- opts = {
+    --   disable_filetype = { "tex" },
+    -- },
   },
 
   -----------------------------------------------------------------------------
@@ -182,7 +185,7 @@ return {
   -- Treesitter ---------------------------------------------------------------
   -----------------------------------------------------------------------------
   {
-    "p00f/nvim-ts-rainbow",
+    "HiPhish/nvim-ts-rainbow2",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
@@ -202,8 +205,8 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     opts = {
       highlight = { enable = true },
-      indent = { enable = true },
-      rainbow = { enable = true, colors = { "Gold", "Orchid", "DodgerBlue", "Cornsilk" } },
+      indent = { enable = true, disable = { "tex" } },
+      rainbow = { enable = true },
       ensure_installed = {
         "bash",
         "c",
