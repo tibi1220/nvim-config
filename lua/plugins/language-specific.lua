@@ -12,8 +12,6 @@ return {
       vim.g.vimtex_syntax_enabled = false -- Fucks up lua code
 
       vim.cmd [[
-autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=hu,en_us,ru
-
 function! s:write_server_name() abort
 let nvim_server_file = (has('win32') ? $TEMP : '/tmp') . '/vimtexserver.txt'
 call writefile([v:servername], nvim_server_file)
@@ -30,5 +28,17 @@ augroup END
     end,
     -- Skim command
     -- nvr --servername `cat /tmp/vimtexserver.txt` +"%line" "%file"
+  },
+
+  -----------------------------------------------------------------------------
+  -- Markdown -----------------------------------------------------------------
+  -----------------------------------------------------------------------------
+  {
+    "iamcco/markdown-preview.nvim",
+    ft = "markdown",
+    build = "cd app && npm install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
   },
 }
