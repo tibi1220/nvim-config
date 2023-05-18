@@ -21,12 +21,6 @@ mv  ~/.config/nvim ~/.config/nvim.bak
 git clone https://github.com/tibi1220/nvim-config ~/.config/nvim
 ```
 
-Open neovim for the first time by running:
-
-```shellscript
-nvim +PackerSync
-```
-
 ## File structure
 
 ## Thanks
