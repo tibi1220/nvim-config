@@ -193,11 +193,6 @@ return {
       "nvim-treesitter/nvim-treesitter-context",
       "JoosepAlviste/nvim-ts-context-commentstring",
       "numToStr/Comment.nvim",
-      {
-        "numToStr/Comment.nvim",
-        event = { "BufReadPost", "BufNewFile" },
-        config = true,
-      },
     },
     opts = {
       highlight = { enable = true },
