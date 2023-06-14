@@ -1,5 +1,4 @@
 return {
-  { "numToStr/Comment.nvim", event = { "BufReadPost", "BufNewFile" }, config = true },
   { "norcalli/nvim-colorizer.lua", event = "VeryLazy" },
   { "nacro90/numb.nvim", event = "VeryLazy", config = true },
   -----------------------------------------------------------------------------
@@ -185,28 +184,27 @@ return {
   -- Treesitter ---------------------------------------------------------------
   -----------------------------------------------------------------------------
   {
-    "HiPhish/nvim-ts-rainbow2",
-    event = { "BufReadPost", "BufNewFile" },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    event = { "BufReadPost", "BufNewFile" },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = true,
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
+    dependencies = {
+      "HiPhish/nvim-ts-rainbow2",
+      "windwp/nvim-ts-autotag",
+      "nvim-treesitter/nvim-treesitter-context",
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      "numToStr/Comment.nvim",
+      {
+        "numToStr/Comment.nvim",
+        event = { "BufReadPost", "BufNewFile" },
+        config = true,
+      },
+    },
     opts = {
       highlight = { enable = true },
       indent = { enable = true, disable = { "tex" } },
       rainbow = { enable = true },
+      autotag = { enable = true },
+      context_commentstring = { enable = true, enable_autocmd = false },
       ensure_installed = {
         "bash",
         "c",
@@ -232,6 +230,10 @@ return {
     },
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
+
+      require("Comment").setup {
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      }
     end,
   },
 }
