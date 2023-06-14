@@ -14,4 +14,19 @@ return {
       },
     },
   },
+  emmet_ls = {
+    init_options = {
+      html = {
+        options = {
+          ["output.selfClosingStyle"] = "xhtml",
+          -- ["jsx.enabled"] = true,
+        },
+      },
+      jsx = {
+        options = {
+          ["output.selfClosingStyle"] = "xhtml",
+        },
+      },
+    },
+  },
 }
