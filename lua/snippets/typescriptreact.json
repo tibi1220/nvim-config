@@ -1,5 +1,5 @@
 {
-  "React.FC<Props>": {
+  "React.FC<Props> : ReactNode": {
     "prefix": "trp",
     "description": "Typescript React Functional Component with Props",
     "body": [
@@ -22,7 +22,7 @@
       "export default ${1:$TM_FILENAME_BASE}"
     ]
   },
-  "React.FC<Props>": {
+  "FC<Props> : ReactNode": {
     "prefix": "_trp",
     "description": "Typescript React Functional Component with Props",
     "body": [
@@ -45,7 +45,7 @@
       "export default ${1:$TM_FILENAME_BASE}"
     ]
   },
-  "React.FC<Props>": {
+  "React.FC<Props> : null": {
     "prefix": "trpn",
     "description": "Typescript React Functional Component with Props",
     "body": [
@@ -64,7 +64,7 @@
       "export default ${1:$TM_FILENAME_BASE}"
     ]
   },
-  "React.FC<Props>": {
+  "FC<Props> : null": {
     "prefix": "_trpn",
     "description": "Typescript React Functional Component with Props",
     "body": [
