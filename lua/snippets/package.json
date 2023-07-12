@@ -14,6 +14,12 @@
           "typescriptreact"
         ],
         "path": "./typescriptreact.json"
+      },
+      {
+        "language": [
+          "tex"
+        ],
+        "path": "./tex.json"
       }
     ]
   }
