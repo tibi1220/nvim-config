@@ -39,10 +39,24 @@ return {
           numhl = "GitSignsChangeNr",
           linehl = "GitSignsChangeLn",
         },
+        untracked = {
+          hl = "KeyWord",
+          text = "▎", -- ▎
+          numhl = "KeyWord",
+          linehl = "GitSignsDeleteLn",
+        },
       },
     },
   },
   {
     "f-person/git-blame.nvim",
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
+    -- stylua: ignore
+    keys = {
+      { "<leader>lg", "<CMD>LazyGit<CR>", "Lazygit" },
+    },
   },
 }
