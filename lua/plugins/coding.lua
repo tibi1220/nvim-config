@@ -59,6 +59,18 @@ return {
       "saadparwaiz1/cmp_luasnip",
       {
         "zbirenbaum/copilot.lua",
+        dependencies = {
+          "jonahgoldwastaken/copilot-status.nvim",
+          opts = {
+            icons = {
+              idle = " ",
+              error = " ",
+              offline = "󰌸 ",
+              warning = "⚠ ",
+              loading = " ",
+            },
+          },
+        },
         opts = {
           panel = { enabled = false },
           suggestion = { enabled = false },
@@ -228,18 +240,31 @@ return {
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
-      "HiPhish/nvim-ts-rainbow2",
+      -- "HiPhish/nvim-ts-rainbow2",
+      "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
       "windwp/nvim-ts-autotag",
       "nvim-treesitter/nvim-treesitter-context",
       "JoosepAlviste/nvim-ts-context-commentstring",
       "numToStr/Comment.nvim",
     },
+    keys = function()
+      return {
+        {
+          "<C-e>",
+          function()
+            local result = vim.treesitter.get_captures_at_cursor(0)
+            print(vim.inspect(result))
+          end,
+          desc = "Telescope Find Files",
+        },
+      }
+    end,
     opts = {
       highlight = { enable = true },
       indent = { enable = true, disable = { "tex" } },
       rainbow = { enable = true },
-      autotag = { enable = true },
-      context_commentstring = { enable = true, enable_autocmd = false },
+      autotag = { enable = false },
+      ts_context_commentstring = { enable = true, enable_autocmd = false },
       ensure_installed = {
         "bash",
         "c",

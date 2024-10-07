@@ -39,3 +39,9 @@ o.wrap = false
 o.scrolloff = 4 -- Number of lines above/below cursor
 o.sidescrolloff = 4 -- Number of cols next to cursor
 o.cc = "80,100,120"
+
+vim.filetype.add {
+  extension = {
+    mdx = "md",
+  },
+}

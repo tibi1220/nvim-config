@@ -127,12 +127,18 @@ return {
     opts = function()
       local nls = require "null-ls"
       return {
-        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
+        root_dir = require("null-ls.utils").root_pattern(
+          ".null-ls-root",
+          "Makefile",
+          ".git",
+          "package.json",
+          ".latexmkrc"
+        ),
         sources = {
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.prettier,
           nls.builtins.formatting.autopep8,
-          nls.builtins.formatting.latexindent.with { extra_args = { "-l" } },
+          nls.builtins.formatting.latexindent.with { extra_args = { "-l", "-m" } },
         },
       }
     end,

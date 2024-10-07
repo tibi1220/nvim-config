@@ -18,13 +18,26 @@ return {
       return {
         options = {
           icons_enabled = true,
-          component_separators = { left = "", right = "" },
-          section_separators = { left = "", right = "" },
+          component_separators = "", -- { left = "", right = "" },
+          section_separators = "", -- { left = "", right = "" },
           always_divide_middle = true,
         },
         sections = {
-          lualine_a = { "mode" },
-          lualine_b = { "branch", "diff", "diagnostics" },
+          -- stylua: ignore
+          lualine_a = { { function() return " " end, padding = { left = 0, right = 0 } } }, -- { "mode" },
+          lualine_b = {
+            "branch",
+            "diff",
+            "diagnostics",
+            {
+              function()
+                return require("copilot_status").status_string()
+              end,
+              cnd = function()
+                return require("copilot_status").enabled()
+              end,
+            },
+          },
           lualine_c = {
             { "filename", path = 1 },
             {
@@ -136,7 +149,21 @@ return {
     event = "VeryLazy",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
+      {
+        "nvim-tree/nvim-web-devicons",
+        opts = {
+          override_by_filename = {
+            ["tsconfig.json"] = {
+              icon = "󰛦",
+            },
+          },
+          override_by_extension = {
+            tex = { icon = "" },
+            cls = { icon = "" },
+            sty = { icon = "" },
+          },
+        },
+      },
       "MunifTanjim/nui.nvim",
     },
     keys = {
@@ -161,7 +188,9 @@ return {
         width = 32,
       },
       filesystem = {
-        follow_current_file = true,
+        follow_current_file = {
+          enabled = true,
+        },
         bind_to_cwd = false,
         filtered_items = {
           hide_dotfiles = false,

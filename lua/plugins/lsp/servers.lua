@@ -1,4 +1,9 @@
 return {
+  clangd = {
+    capabilities = {
+      offsetEncoding = { "utf-16" },
+    },
+  },
   lua_ls = {
     settings = {
       Lua = {

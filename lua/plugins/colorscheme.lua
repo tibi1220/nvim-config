@@ -39,9 +39,19 @@ return {
 --   dir = "/Users/tiborsandor/Documents/Code/NVIM/reactive.nvim",
 --   config = function()
 --     require("reactive").setup {
---       debug = true,
+--       -- debug = true,
 --     }
 --     vim.cmd [[colorscheme reactive]]
+--   end,
+-- }
+
+-- return {
+--   dir = "/Users/tiborsandor/Documents/Code/NVIM/ninja.nvim",
+--   config = function()
+--     require("ninja").setup {
+--       debug = true,
+--     }
+--     vim.cmd [[colorscheme ninja]]
 --   end,
 -- }
 
