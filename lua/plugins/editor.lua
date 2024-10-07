@@ -7,14 +7,6 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function()
-      -- local function fg(name)
-      --   return function()
-      --     ---@type {foreground?:number}?
-      --     local hl = vim.api.nvim_get_hl_by_name(name, true)
-      --     return hl and hl.foreground and { fg = string.format("#%06x", hl.foreground) }
-      --   end
-      -- end
-
       return {
         options = {
           icons_enabled = true,
@@ -42,8 +34,10 @@ return {
             { "filename", path = 1 },
             {
               function()
-                local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-                local clients = vim.lsp.get_active_clients()
+                local buf_ft = vim.bo.filetype
+                local clients = vim.lsp.get_clients {
+                  bufnr = 0,
+                } -- Gets active LSP clients for the current buffer
                 if next(clients) == nil then
                   return ""
                 end
@@ -52,7 +46,8 @@ return {
 
                 for _, client in ipairs(clients) do
                   local filetypes = client.config.filetypes
-                  if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 and client.name ~= "null-ls" then
+
+                  if filetypes and vim.tbl_contains(filetypes, buf_ft) and client.name ~= "null-ls" then
                     table.insert(buf_client_names, client.name)
                   end
                 end
@@ -177,7 +172,7 @@ return {
     init = function()
       vim.g.neo_tree_remove_legacy_commands = 1
       if vim.fn.argc() == 1 then
-        local stat = vim.loop.fs_stat(vim.fn.argv(0))
+        local stat = vim.uv.fs_stat(vim.fn.argv(0))
         if stat and stat.type == "directory" then
           require "neo-tree"
         end
